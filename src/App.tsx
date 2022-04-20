@@ -1,12 +1,15 @@
 import { Route, Routes } from 'react-router-dom'
-import { About, Home } from './components'
-
+import './App.css'
+import { About, Home, Navbar } from './components'
 function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/about" element={<About />} />
-    </Routes>
+    <>
+      <Navbar />
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+    </>
   )
 }
 
