@@ -1,7 +1,7 @@
+import React, { lazy } from 'react'
 import { Route, Routes } from 'react-router-dom'
 import './App.css'
 import PageNotFound from './components/404'
-import About from './components/About'
 import Admin from './components/Admin'
 import FeatureProducts from './components/FeatureProducts'
 import Home from './components/Home'
@@ -11,13 +11,20 @@ import OrderSummary from './components/OrderSummary'
 import Products from './components/Products'
 import UserDetails from './components/UserDetails'
 import Users from './components/Users'
+
+const About = lazy(() => import('./components/About'))
+
 function App() {
   return (
     <>
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="about" element={<About />} />
+        <Route path="about" element={
+          <React.Suspense fallback="Loading...">
+            <About />
+          </React.Suspense>
+        } />
         <Route path="order-summary" element={<OrderSummary />} />
         {/* Notepoint
           - the path property dosnot include the leading slash (/)
