@@ -17,6 +17,12 @@ function App() {
         <Route path="/" element={<Home />} />
         <Route path="about" element={<About />} />
         <Route path="order-summary" element={<OrderSummary />} />
+        {/* Notepoint
+          - the path property dosnot include the leading slash (/)
+          - this is because the path property is used to match the URL
+          - the leading slash is added by the router in case of relative paths
+          - so if we use the / then full absolute path will be matched i,e /product/featured
+        */}
         <Route path="products" element={<Products />} >
           <Route index element={<FeatureProducts />} />
           <Route path="featured" element={<FeatureProducts />} />
